@@ -6,6 +6,8 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import time
+from scrapy.http import HtmlResponse
 
 
 class ScrapyCodeSpiderMiddleware(object):
@@ -78,7 +80,8 @@ class ScrapyCodeDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return None
+        time.sleep(1)
+        return HtmlResponse(url=spider.browser.current_url, body=spider.browser.page_source, encoding="utf-8", request=request)
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.

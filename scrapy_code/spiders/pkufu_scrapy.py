@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# @Time    : 2020/3/17 10:13 上午
+# @Author  : Neehong
+# @FileName: pkuph_scrapy.py
+# @Software: PyCharm
+
 from urllib import parse
 
 import scrapy
@@ -9,6 +14,9 @@ from scrapy_code.utils.common import get_md5
 
 
 class PkufuScrapySpider(scrapy.Spider):
+    """
+    爬取"北京大学第一医院"中的"科普文章"（文章）、"科普视频"（视频）栏目内容
+    """
     name = 'pkufu_scrapy'
     allowed_domains = ['www.pkufh.com']
     start_urls = ['https://www.pkufh.com/Html/News/Columns/1306/Index.html/']
