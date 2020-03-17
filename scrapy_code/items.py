@@ -22,6 +22,7 @@ class PkufuItemLoader(ItemLoader):
     default_output_processor = TakeFirst()
 
 
+
 def date_convert(value):
     match_re = re.match(".*(\d*-\d*-\d*)$", value)
     if match_re:
@@ -32,6 +33,8 @@ def date_convert(value):
         post_date = datetime.datetime.now().date()
     return post_date
 
+def return_value(value):
+    return value
 
 class PkufuItem(scrapy.Item):
     title = scrapy.Field()
@@ -40,6 +43,9 @@ class PkufuItem(scrapy.Item):
     )
     url = scrapy.Field()
     url_object_id = scrapy.Field()
+    front_img_url = scrapy.Field(
+        output_processor=MapCompose(return_value)
+    )
     # count = scrapy.Field()  浏览次数js，无法获取
     content = scrapy.Field()
 
