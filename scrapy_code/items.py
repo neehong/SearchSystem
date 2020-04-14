@@ -17,11 +17,9 @@ class ScrapyCodeItem(scrapy.Item):
     # name = scrapy.Field()
     pass
 
-class PkufuItemLoader(ItemLoader):
+class SelfItemLoader(ItemLoader):
     # 自定义ItemLoader
     default_output_processor = TakeFirst()
-
-
 
 def date_convert(value):
     match_re = re.match(".*(\d*-\d*-\d*)$", value)
@@ -33,19 +31,52 @@ def date_convert(value):
         post_date = datetime.datetime.now().date()
     return post_date
 
+def get_author(value):
+    # 若无作者信息
+    if value == "":
+        return value
+    # 有作者信息，需要提取
+    match_re = re.match("(.*?)来源：(.*) 来源.*", value)
+    if match_re:
+        author = match_re.group(2).strip()
+    else:
+        return ""
+    return author
+
+def get_dSource(value):
+    # 若无来源信息
+    if value == "":
+        return value
+    # 有来源信息，进行提取
+    match_re = re.match(".*来源：(.*?)($|\d.*)", value)
+    if match_re:
+        d_source = match_re.group(1).strip()
+    else:
+        return ""
+    return d_source
+
 def return_value(value):
     return value
 
-class PkufuItem(scrapy.Item):
-    title = scrapy.Field()
-    post_date = scrapy.Field(
-        input_processor=MapCompose(date_convert)
-    )
+class SelfItem(scrapy.Item):
+    type = scrapy.Field() #标记是文章or视频
+    # 文章和视频通用
     url = scrapy.Field()
     url_object_id = scrapy.Field()
-    front_img_url = scrapy.Field(
+    title = scrapy.Field()
+    source = scrapy.Field()
+    date = scrapy.Field(
+        input_processor=MapCompose(date_convert)
+    )
+    # 文章特有
+    author = scrapy.Field(
+        input_processor=MapCompose(get_author)
+    )
+    dSource = scrapy.Field(
+        input_processor=MapCompose(get_dSource)
+    )
+    content = scrapy.Field()
+    # 视频特有
+    img_url = scrapy.Field(
         output_processor=MapCompose(return_value)
     )
-    # count = scrapy.Field()  浏览次数js，无法获取
-    content = scrapy.Field()
-

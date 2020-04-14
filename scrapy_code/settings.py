@@ -65,7 +65,8 @@ DOWNLOAD_DELAY = 10
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_code.pipelines.ScrapyCodePipeline': 300,
+   # 'scrapy_code.pipelines.ScrapyCodePipeline': 300,
+   'scrapy_code.pipelines.ElasticsearchPipline': 1
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
