@@ -9,7 +9,7 @@ from urllib import parse
 import scrapy
 from scrapy.http import Request
 
-from scrapy_code.items import PkufuItemLoader, PkufuItem
+from scrapy_code.items import SelfItemLoader, SelfItem
 from scrapy_code.utils.common import get_md5
 
 
@@ -49,29 +49,31 @@ class PkuphScrapySpider(scrapy.Spider):
                 yield Request(url=parse.urljoin(response.url, next_url), meta={"type": type}, callback=self.parse)
 
     # 解析文章栏目
-    def parse_article_detail(self,response):
+    def parse_article_detail(self, response):
         # 通过item_loader加载item
-        item_loader = PkufuItemLoader(item=PkufuItem(), response=response)
+        item_loader = SelfItemLoader(item=SelfItem(), response=response)
         item_loader.add_css("title", ".l h1::text")
-        item_loader.add_css("post_date", ".time::text")
+        item_loader.add_css("date", ".time::text")
         item_loader.add_value("url", response.url)
         item_loader.add_value("url_object_id", get_md5(response.url))
-        item_loader.add_value("front_img_url", [])
         item_loader.add_css("content", ".content.xq")
-
+        item_loader.add_css("author", "meta[name=description]::attr(content)")
+        item_loader.add_css("dSource", "meta[name=description]::attr(content)")
+        item_loader.add_value("source", "北京大学人民医院")
+        item_loader.add_value("type", "article")
         article_item = item_loader.load_item()
         yield article_item
 
     # 解析视频栏目
     def parse_video_detail(self, response):
-        item_loader = PkufuItemLoader(item=PkufuItem(), response=response)
+        item_loader = SelfItemLoader(item=SelfItem(), response=response)
         item_loader.add_css("title", ".videoShow h1::text")
-        item_loader.add_css("post_date", ".fl::text")
+        item_loader.add_css("date", ".fl::text")
         item_loader.add_value("url", response.url)
         item_loader.add_value("url_object_id", get_md5(response.url))
-        item_loader.add_value("front_img_url", [])
-        item_loader.add_value("content", "")
-
+        # item_loader.add_value("img_url", ) #无封面图
+        item_loader.add_value("source", "北京大学人民医院")
+        item_loader.add_value("type", "video")
         video_item = item_loader.load_item()
         yield video_item
 

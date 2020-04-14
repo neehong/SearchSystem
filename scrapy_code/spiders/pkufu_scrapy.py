@@ -9,7 +9,7 @@ from urllib import parse
 import scrapy
 from scrapy.http import Request
 
-from scrapy_code.items import PkufuItem, PkufuItemLoader
+from scrapy_code.items import SelfItem, SelfItemLoader
 from scrapy_code.utils.common import get_md5
 
 
@@ -50,9 +50,10 @@ class PkufuScrapySpider(scrapy.Spider):
     def parse_video(self, response):
         # 解析列表中的所有url并交给scrapy下载后解析
         # todo:对获取失败的url（404……）进行处理
+        domain = "www.pkufh.com"
         post_nodes = response.css(".img_video")
         for post_node in post_nodes:
-            img_url = post_node.css("a.video_img img::attr(src)").extract_first("")
+            img_url = domain + post_node.css("a.video_img img::attr(src)").extract_first("")
             post_url = post_node.css("a.video_btn::attr(href)").extract_first("")
             yield Request(url=parse.urljoin(response.url, post_url), meta={"front_img_url": img_url},
                           callback=self.parse_video_detail)
@@ -66,33 +67,32 @@ class PkufuScrapySpider(scrapy.Spider):
     # 解析科普文章内容
     def parse_article_detail(self, response):
         # 通过item_loader加载item
-        item_loader = PkufuItemLoader(item=PkufuItem(), response=response)
-        item_loader.add_css("title", ".article_title font::text")
-        item_loader.add_css("post_date", ".time::text")
+        item_loader = SelfItemLoader(item=SelfItem(), response=response)
         item_loader.add_value("url", response.url)
-        item_loader.add_value("url_object_id", get_md5(response.url))
-        item_loader.add_value("front_img_url", [])
-        # item_loader.add_css("count", ".count span::text")
+        item_loader.add_css("title", ".article_title font::text")
+        item_loader.add_css("author", ".source::text")
+        item_loader.add_css("dSource", ".source::text")
+        item_loader.add_value("source", "北京大学第一医院")
+        item_loader.add_css("date", ".time::text")
         item_loader.add_css("content", "div.article_cont")
-
+        item_loader.add_value("url_object_id", get_md5(response.url))
+        item_loader.add_value("type", "article")
         article_item = item_loader.load_item()
-
         yield article_item
 
 
     # 解析科普视频内容
     def parse_video_detail(self, response):
         front_img_url = response.meta.get("front_img_url", "") #视频封面图
-        item_loader = PkufuItemLoader(item=PkufuItem(), response=response)
-        item_loader.add_css("title", ".sp_title font::text")
-        item_loader.add_css("post_date", ".sub_sptit span::text")
+        item_loader = SelfItemLoader(item=SelfItem(), response=response)
         item_loader.add_value("url", response.url)
         item_loader.add_value("url_object_id", get_md5(response.url))
-        item_loader.add_value("front_img_url", [front_img_url])
-        item_loader.add_value("content", "")
-
+        item_loader.add_css("title", ".sp_title font::text")
+        item_loader.add_value("img_url", front_img_url)
+        item_loader.add_css("date", ".sub_sptit span::text")
+        item_loader.add_value("source", "北京大学第一医院")
+        item_loader.add_value("type", "video")
         video_item = item_loader.load_item()
-
         yield video_item
 
 
