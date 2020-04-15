@@ -6,7 +6,6 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from scrapy_code.models.es_types import ArticleType, VideoType
-from w3lib.html import remove_tags
 
 
 class ScrapyCodePipeline(object):

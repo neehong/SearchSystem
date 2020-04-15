@@ -9,8 +9,6 @@ from elasticsearch_dsl import Document, Date, Nested, Boolean, \
     analyzer, InnerDoc, Completion, Keyword, Text
 from elasticsearch_dsl import connections
 from elasticsearch_dsl.analysis import CustomAnalyzer
-from w3lib.html import remove_tags
-
 
 ik_analyzer = CustomAnalyzer("ik_max_word", filter=["lowercase"])
 
@@ -21,20 +19,21 @@ def gen_suggests(index, info_tuple):
     # 根据字符串生成搜索建议数组
     used_words = set()
     suggests = []
-    for text,weight in info_tuple:
+    for (text, weight) in info_tuple:
         if text:
             #调用es的analyze接口分析字符串
-            words = es.indices.analyze(index=index, analyzer="ik_max_word",params={"filter": ["lowercase"]}, body=text)
+            words = es.indices.analyze(index=index, body={"text": text, "analyzer": "ik_max_word"})
             anylyzed_words = set([r["token"] for r in words["tokens"] if len(r["token"]) > 1])
             new_words = anylyzed_words - used_words
         else:
             new_words = set()
         if new_words:
             suggests.append({'input': list(new_words), 'weight': weight})
-        return suggests
+    return suggests
 
 
 class ArticleType(Document):
+    # 提前在settings设置自动创建index
     class Index:
         name = 'article'
         # settings = {
@@ -43,7 +42,7 @@ class ArticleType(Document):
         # }
 
     # 文章和视频通用
-    url = Keyword
+    url = Keyword()
     url_object_id = Keyword()
     title = Text(analyzer="ik_max_word")
     source = Text(analyzer="ik_max_word")
@@ -71,9 +70,10 @@ class ArticleType(Document):
         self.date = item["date"]
         self.author = item["author"]
         self.dSource = item["dSource"]
-        self.content = remove_tags(item["content"])
+        self.content = item["content"]
         self.meta.id = item["url_object_id"]
-        self.suggest = gen_suggests(ArticleType.Index, ((self.title, 10), (self.author, 3), (self.dSource, 4)))
+        # todo: class Index 无法在save前自动创建，所以这里的调用需要提前新建索引库。es_Type的流程细节是怎样？是save之后再创建index？如何修改？class Meta？
+        self.suggest = gen_suggests(ArticleType.Index.name, ((self.title, 10), (self.author, 3), (self.dSource, 4)))
 
 
 class VideoType(Document):
@@ -85,7 +85,7 @@ class VideoType(Document):
         # }
 
     # 文章和视频通用
-    url = Keyword
+    url = Keyword()
     url_object_id = Keyword()
     title = Text(analyzer="ik_max_word")
     source = Text(analyzer="ik_max_word")
@@ -111,10 +111,10 @@ class VideoType(Document):
         self.date = item["date"]
         self.meta.id = item["url_object_id"]
         self.img_url = item["img_url"]
-        self.suggest = gen_suggests(VideoType.Index, ((self.title, 10), (self.source, 2)))
+        self.suggest = gen_suggests(VideoType.Index.name, ((self.title, 10), (self.source, 2)))
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     # 插入article数据
     ArticleType.init()
     VideoType.init()
