@@ -1,3 +1,5 @@
+[TOC]
+
 # 介绍
 基于各大医院以及健康资讯网站的爬取数据，构建的一个”健康知识搜索引擎“
 
@@ -187,7 +189,7 @@ response = client.search(
 
 **文章aindex**：包含”疫情专区"文章和普通“科普文章”
 ```python
-	title = Text(analyzer="ik_max_word") #标题
+    title = Text(analyzer="ik_max_word") #标题
     date = Date() #发布日期
     content = Text(analyzer="ik_max_word") #内容
     url = Keyword() #url
@@ -199,7 +201,7 @@ response = client.search(
 ```
 **视频vindex**：
 ```python
-	title = Text(analyzer="ik_max_word") #标题
+    title = Text(analyzer="ik_max_word") #标题
     date = Date()  # 发布日期
     url = Keyword() #url
     img_url = Keyword()
@@ -229,13 +231,17 @@ CORS_ORIGIN_ALLOW_ALL = True
 3. 后端测试接口
 
 1）启动es
+
 2）启动Django项目：python manage.py runserver
+
 3）根据`backend_spider_medical\backend_app\views.py`文件提供的接口，使用postman测试
 
 4. 前端测试后端接口
 
 1）启动es
+
 2）启动Django项目：python manage.py runserver
+
 3）前端调用接口
 
 # 其他说明
