@@ -66,9 +66,12 @@ npm run dev
 (参数说明：
 搜索类型：0-疫情专区；1-科普文章；2-视频专区)
 * 返回结果：json
+```json
 {
 	"suggest":[……]
 }
+```
+
 示例见```（新）SearchView返回结果.txt```文件
 
 2.搜索关键字：
@@ -84,6 +87,7 @@ npm run dev
 
 ### 接口开发
 1. “搜索提示”接口
+
 第一版采用es的suggestor进行查询，但是由于前期在爬取数据前没有考虑周到，所以导致后期需要使用context suggestor时，要对原有es上的mapping和数据字段进行重建，耗时过久，所以最终采用了第二版
 
 第二版采用如下的es查询语句：
@@ -115,6 +119,7 @@ response = client.search(
             )
 ```
 2. “搜索关键字”接口
+
 采用如下的es查询语句：
 ```python
 response = client.search(
@@ -168,6 +173,7 @@ response = client.search(
 ```
 
 3. 接口测试
+
 * 启动es和kibana
 * 在kibana上对对应接口的（search; suggest……）语句进行测试，直到返回结果正确
 * 根据在kibana上测试好的语句完善view.py中的接口
@@ -176,7 +182,9 @@ response = client.search(
 
 # 前后端测试
 1. es数据准备
+
 1）根据scrapy_code爬虫项目，往elasticsearch中存入数据，对应的index为aindex 和 vindex，详细字段说明如下：
+
 **文章aindex**：包含”疫情专区"文章和普通“科普文章”
 ```python
 	title = Text(analyzer="ik_max_word") #标题
@@ -200,6 +208,7 @@ response = client.search(
 ```
 
 2. 前后端跨域问题
+
 修改`backend_spider_medical\backend_spider_medical\settings.py`文件
 
 ```
@@ -218,17 +227,21 @@ CORS_ORIGIN_ALLOW_ALL = True
 ```
 
 3. 后端测试接口
+
 1）启动es
 2）启动Django项目：python manage.py runserver
 3）根据`backend_spider_medical\backend_app\views.py`文件提供的接口，使用postman测试
 
 4. 前端测试后端接口
+
 1）启动es
 2）启动Django项目：python manage.py runserver
 3）前端调用接口
 
 # 其他说明
 ## 不停服修改es的mapping
+
 见```不停服修改mapping.txt```文件
+
 主要是在es上的已有数据量不多的情况下，且在不停掉爬虫和es下，修改现有的index的mapping，便于后续的es查询操作。
 比如使用es的聚合(aggs)功能就需要声明聚合的字段为keyword类型
