@@ -1,0 +1,57 @@
+一、不停服更改mapping
+
+# 创建新的index及mapping
+PUT video2
+{
+  "settings":{
+    "index":{
+      "number_of_shards":2,
+      "number_of_replicas":1
+    }
+  },
+  "mappings": {
+    "properties":{
+        ……
+        "source":{
+          "type":"text",
+          "analyzer": "ik_max_word",
+          "fields": {
+          "keyword": { 
+            "type": "keyword"
+          }
+        }
+        },
+        ……
+      }
+  }
+}
+
+# 使用 reindex 将旧的index重建到新的index上
+POST /_reindex
+# 如果出错试试POST _reindex
+{
+  "source": {
+    "index": "video" # 旧
+  },
+  "dest": {
+    "index": "video2" # 新
+  }
+}
+
+# 创建alias 别名
+POST /_aliases（同上）
+{
+  "actions": [
+    {
+      "add": {
+        "index": "video2",
+        "alias": "video" # 别名，就取旧的index名字
+        }
+      },
+      {
+        "remove_index": {
+          "index": "video" #移除旧的index
+          }
+      }
+      ]
+}

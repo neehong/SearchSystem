@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from backend_app.views import SearchSuggest, SearchView, IndexView
+from backend_app.views import SearchSuggest, SearchView, IndexView, TopnView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('suggest/', SearchSuggest.as_view(), name="suggest"),
     path('search/', SearchView.as_view(), name="search"),
-    path('', IndexView.as_view(), name="index"),
+    path('', TopnView.as_view(), name="topn"),
+    path('index/', IndexView.as_view(), name="index"),
 ]

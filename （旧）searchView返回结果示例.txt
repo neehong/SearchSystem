@@ -1,0 +1,98 @@
+{
+    "page": 1,
+    "all_hits": [
+        {
+            "title": "谈谈锻炼与体重管理",
+            "content": "谈谈锻炼与体重管理\r\n\r\n\t 北京大学人民医院  胡大一\r\n\r\n\t  来源： 《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>报》 2018年03月02日  第5版\r\n\r\n\t \r\n\r\n\t提到“减肥”一词，谁也不会对当下的减肥风潮感到陌生。更为严重的是，不正确的减肥方法还会将身体<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>推\r\n\r\n\t向危险的边缘。\r\n\r\n\t虽然也有一些安全有效的方法，却没有教会人们如何防止体重反弹。如果某个减重计划许诺在短期内可以大幅度减轻体重，这个计划起码有悖<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>原则。有的减重计划声称只食用某类或某几类食品，或者要求食用某\r\n\r\n\t些特定的食物。事实上，任何食物都不是体重增减的关键，营养均衡有利于人体<span class=\"keyWord\">健</span><span class=\"keyWord\">康<",
+            "date": "2018-03-19",
+            "url": "https://www.pkuph.cn/about_detail/12797.html",
+            "score": 121.28325,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "职场致盲首要原因，看看糖网病四大高危人群是哪些？",
+            "content": "受访专家  北京大学人民医院  眼科  齐慧君\r\n\r\n\t来源：《职场<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>课》 2018年9月18日  \r\n\r\n\t作者：  张颖\r\n\r\n\t \r\n\r\n\t视网膜，是我们能够感知纷繁的世界，感受缤纷色彩最重要的器官1.有糖尿病家族史的人群\r\n\r\n\t很多年轻人，仗着年轻，不定期体检，不关心<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>，很多人患糖尿病多年而不自知，所以如果家族有糖尿病病史，那么就一定要定期进行糖尿病筛查，以确保病症的早发现早治疗。\r\n\r\n\t ",
+            "date": "2018-10-18",
+            "url": "https://www.pkuph.cn/about_detail/13705.html",
+            "score": 100.39242,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": " 肿瘤防控60年60人 | 魏丽惠：什么时候打宫颈癌疫苗效力最高？",
+            "content": "北京大学人民医院  妇科  魏丽惠\r\n\r\n\t来源：《搜狐<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>》  2018年03月02日\r\n\r\n\t \r\n\r\n\t目前我国宫颈癌疫苗已经全面开始接种，一些地区甚至出现了供不应求的现象。带着这些疑惑，搜狐<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>拜访了中国四价宫颈癌疫苗上市前临床注册试验总负责人、北京大学人民医院妇科魏丽惠教授。\r\n\r\n\t \r\n\r\n\t有性生活之后还有必要接种宫颈癌疫苗吗？\r\n\r\n\t ",
+            "date": "2018-03-23",
+            "url": "https://www.pkuph.cn/about_detail/12832.html",
+            "score": 87.03576,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "关节喊“痛”不能掉以轻心",
+            "content": "受访专家  北京大学人民医院  骨关节科  孙铁铮\r\n\r\n\t来源：《中国人口报》妇幼<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>周刊 2018年10月9日  头版\r\n\r\n\t作者： 李宁\r\n\r\n\t \r\n\r\n\t关节炎是世界头号致残性疾病，据估算，年轻人爱跑、爱动，爱好锻炼<span class=\"keyWord\">健</span>身者更是为数众多，但孙铁铮特别强调，锻炼一定要讲究科学，锻炼前要充分热身，进行有氧运动，注意适当的强度，运动量不要超过身体负荷，否则极易引起关节组织的损伤。因此，预防骨关节炎，从年轻时就重视预防关节的损伤极为关键，像交叉韧带、半月板等在运动中如果受伤，一定要及时治疗，注意<span class=\"keyWord\">康</span>复休息，以保障关节组织结构的稳定性。”\r\n\r\n\t减少职业劳损的积累。",
+            "date": "2018-10-18",
+            "url": "https://www.pkuph.cn/about_detail/13706.html",
+            "score": 75.053246,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "国内两个机构合作研究发现：有些人群自带降脂基因",
+            "content": "通过测序分析发现，他们的“LIMA1”基因存在突变，突变携带者除胆固醇水平降低外，身体各项指标均<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>。随后，研究人员展开了更深入的研究，发现该突变基因可调控小肠对胆固醇的吸收。",
+            "date": "2018-07-23",
+            "url": "https://www.pkuph.cn/about_detail/13437.html",
+            "score": 69.091385,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "预防破伤风  先要堵上免疫缺口2",
+            "content": "北京大学人民医院  急诊科  王传林\r\n\r\n\t来源：《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>报》  2018年6月12日  第8版\r\n\r\n\t \r\n\r\n\t老王的不幸与厨师的尴尬\r\n\r\n\t \r\n\r\n\t河北老王，今年50岁，在一次全家聚餐中和三弟为点鸡毛蒜皮的事情吵起来",
+            "date": "2018-07-16",
+            "url": "https://www.pkuph.cn/about_detail/13385.html",
+            "score": 57.04239,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "养护好你的肾脏",
+            "content": "养护好你的肾脏\r\n\r\n\t北京大学人民医院  肾内科 左力  \r\n\r\n\t来源：《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>时报》 2018年01月09日 第20版\r\n\r\n\t \r\n\r\n\t编者按：肾脏掌管人体一身水运，每天我们的肾脏都要清理150",
+            "date": "2018-01-18",
+            "url": "https://www.pkuph.cn/about_detail/12601.html",
+            "score": 51.63911,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": " 护耳是一辈子的事儿",
+            "content": "护耳是一辈子的事儿\r\n\r\n\t北京大学人民医院  耳鼻喉科  余力生  \r\n\r\n\t来源：《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>时报》 2018年03月20日 第20版\r\n\r\n\t \r\n\r\n\t编者按：3月2日下午14:00~15:00，北京大学人民医院耳鼻喉科主任余力生教授在",
+            "date": "2018-04-12",
+            "url": "https://www.pkuph.cn/about_detail/12926.html",
+            "score": 28.058132,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "预防破伤风  先要堵上免疫缺口",
+            "content": "北京大学人民医院  急诊科  王传林\r\n\r\n\t来源：《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>报》  2018年6月12日  第8版\r\n\r\n\t \r\n\r\n\t老王的不幸与厨师的尴尬\r\n\r\n\t \r\n\r\n\t河北老王，今年50岁，在一次全家聚餐中和三弟为点鸡毛蒜皮的事情吵起来",
+            "date": "2018-07-16",
+            "url": "https://www.pkuph.cn/about_detail/13385.html",
+            "score": 24.487753,
+            "source": "北京大学人民医院"
+        },
+        {
+            "title": "什么该处在医院管理的塔尖",
+            "content": "什么该处在医院管理的塔尖\r\n\r\n\t北京大学人民医院院长  姜保国\r\n\r\n\t  来源： 《<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>报》 2018年05月28日  第6版\r\n\r\n\t \r\n\r\n\t作为院长，我常常思考这样的问题：如何让患者更加信任我们的医院服务更有人情味\r\n\r\n\t \r\n\r\n\t随着医疗模式的转变和市场经济的发展，患者对个体<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>的关注度增加；随着就医半径不断扩大，自主选择性更强，患者对医疗服务的要求越来越高。北京大学人民医院目前正在开展关注医患体验的相关工作，从优化诊室布局、营造温馨就诊环境、设置便民安全设施、提供优质便民服务等方面，让医疗环境越来越和谐，让医患关系越来越<span class=\"keyWord\">健</span><span class=\"keyWord\">康</span>。",
+            "date": "2018-06-07",
+            "url": "https://www.pkuph.cn/about_detail/13192.html",
+            "score": 24.487753,
+            "source": "北京大学人民医院"
+        }
+    ],
+    "key_words": "\"健康\"",
+    "total_nums": 17,
+    "page_nums": 2,
+    "last_seconds": 0.087137,
+    "search_count": [
+        {
+            "key": "北京大学人民医院",
+            "doc_count": 17
+        }
+    ],
+    "topn_search": [
+        "\"健康\""
+    ]
+}
